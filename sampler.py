@@ -28,11 +28,11 @@ while True:	#Execution loop
 	try:
 		result = firebast.get('Data', None)
 		if(result!=0):
+			firebase.put('','Data','0);
 			firebase.put('','Received',1);
 			execute_command()
 			firebase.put('','Sample',1);
 			time.sleep(2)
-			firebase.put('','Data',0);
 		time.sleep(5)
 	except:
 		time.sleep(20)
