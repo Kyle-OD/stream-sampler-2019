@@ -19,6 +19,7 @@ GPIO.setup(23, GPIO.OUT); #Pin for Moror forwards
 GPIO.setup(24, GPIO.OUT); #Pin for Pump in
 GPIO.setup(25, GPIO.OUT); #Pin for Pump out
 GPIO.setup(17, GPIO.IN, pull_up_down = GPIO.PUD_DOWN);  #Pin for sample button
+GPIO.setup(27, GPIO.OUT); #Pin for H-Bridge ENA Signal
 
 
 while True:	#Execution loop
