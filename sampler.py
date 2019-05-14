@@ -53,15 +53,19 @@ def execute_command():
 	#Motor to zero position***************************
 
 	GPIO.output(18,1) #Turn motor on
+	GPIO.output(27,1) #ENA signal on
 	time.sleep(1) #SET TO TIME IT TAKES TO RESET
 	GPIO.output(18,0) #Turn motor off
+	GPIO.output(27,0) #ENA signal off
 	#*************************************************
 
 	#Motor to down position***************************
 
 	GPIO.output(23,1) #Turn motor on
+	GPIO.output(27,1) #ENA signal on
 	time.sleep(1) #SET TO TIME IT TAKES TO GO DOWN
 	GPIO.output(23,0) #Turn motor off
+	GPIO.output(27,0) #ENA signal off
 	#*************************************************
 
 	#Pump flush --> fill******************************
@@ -79,7 +83,9 @@ def execute_command():
 
 	#Motor to zero position***************************
 	GPIO.output(18,1) #Turn motor on
+	GPIO.output(27,1) #ENA signal on
 	time.sleep(1) #SET TO TIME IT TAKES TO RESET
 	GPIO.output(18,0) #Turn motor off
+	GPIO.output(27,0) #ENA signal off
 	#*************************************************
 
