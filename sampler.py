@@ -88,7 +88,7 @@ while True:  # Execution loop
             time.sleep(2)
         time.sleep(5)
     except Exception as e:
-	print(e)
+        print(e)
         time.sleep(20)
 
     # ################ BUTTON COMMANDS ####################
@@ -97,7 +97,7 @@ while True:  # Execution loop
             run_sequence()
             time.sleep(2)
     except Exception as e:
-	print(e)
+        print(e)
         time.sleep(1)
 
     time.sleep(2)
