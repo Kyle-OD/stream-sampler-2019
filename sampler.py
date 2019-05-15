@@ -87,7 +87,8 @@ while True:  # Execution loop
             firebase.put('', 'Sample', 1)
             time.sleep(2)
         time.sleep(5)
-    except:
+    except Exception as e:
+	print(e)
         time.sleep(20)
 
     # ################ BUTTON COMMANDS ####################
@@ -95,7 +96,8 @@ while True:  # Execution loop
         if GPIO.input(17) == GPIO.HIGH:  # Checks if button is pressed
             run_sequence()
             time.sleep(2)
-    except:
+    except Exception as e:
+	print(e)
         time.sleep(1)
 
     time.sleep(2)
