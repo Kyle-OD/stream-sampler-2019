@@ -14,7 +14,6 @@ def init():
     GPIO.setup(18, GPIO.OUT, initial=False)  # Pin for Motor backwards
     GPIO.setup(23, GPIO.OUT, initial=False)  # Pin for Motor forwards
     GPIO.setup(24, GPIO.OUT, initial=False)  # Pin for Pump in
-    GPIO.setup(25, GPIO.OUT, initial=False)  # Pin for Pump out
     GPIO.setup(27, GPIO.OUT, initial=False)  # Pin for H-Bridge ENA Signal
     GPIO.setup(17, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)  # Pin for sample button
 
@@ -47,19 +46,11 @@ def motor_forwards():
 
 
 def pump_sequence():
-    # Pump flush --> fill******************************
+    # Pump fill****************************************
     GPIO.cleanup()
     init()
     GPIO.output(24, True)  # Turn fill pump on
-    time.sleep(3)  # SET TO TIME IT TAKES TO FILL
-    GPIO.output(24, False)  # Turn fill pump off
-    time.sleep(1)
-    GPIO.output(25, True)  # Turn flush pump on
-    time.sleep(3)  # SET TO TIME IT TAKES TO FLUSH
-    GPIO.output(25, False)  # Turn flush pump off
-    time.sleep(1)
-    GPIO.output(24, True)  # Turn fill pump on
-    time.sleep(3)  # SET TO TIME IT TAKES TO FILL
+    time.sleep(10)  # SET TO TIME IT TAKES TO FILL
     GPIO.output(24, False)  # Turn fill pump off
     time.sleep(1)
     # *************************************************
