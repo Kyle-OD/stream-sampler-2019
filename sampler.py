@@ -26,9 +26,10 @@ def motor_backwards():
     GPIO.output(18, True)  # Turn motor on
     GPIO.output(23, False)
     GPIO.output(27, True)  # ENA signal on
-    time.sleep(1)  # SET TO TIME IT TAKES TO RESET
+    time.sleep(3)  # SET TO TIME IT TAKES TO RESET
     GPIO.output(18, False)  # Turn motor off
     GPIO.output(27, False)  # ENA signal off
+    time.sleep(1)
     # *************************************************
 
 
@@ -38,9 +39,10 @@ def motor_forwards():
     init()
     GPIO.output(23, True)  # Turn motor on
     GPIO.output(27, True)  # ENA signal on
-    time.sleep(1)  # SET TO TIME IT TAKES TO GO DOWN
+    time.sleep(3)  # SET TO TIME IT TAKES TO GO DOWN
     GPIO.output(23, False)  # Turn motor off
     GPIO.output(27, False)  # ENA signal off
+    time.sleep(1)
     # *************************************************
 
 
@@ -49,14 +51,17 @@ def pump_sequence():
     GPIO.cleanup()
     init()
     GPIO.output(24, True)  # Turn fill pump on
-    time.sleep(1)  # SET TO TIME IT TAKES TO FILL
+    time.sleep(3)  # SET TO TIME IT TAKES TO FILL
     GPIO.output(24, False)  # Turn fill pump off
+    time.sleep(1)
     GPIO.output(25, True)  # Turn flush pump on
-    time.sleep(1)  # SET TO TIME IT TAKES TO FLUSH
+    time.sleep(3)  # SET TO TIME IT TAKES TO FLUSH
     GPIO.output(25, False)  # Turn flush pump off
+    time.sleep(1)
     GPIO.output(24, True)  # Turn fill pump on
-    time.sleep(1)  # SET TO TIME IT TAKES TO FILL
+    time.sleep(3)  # SET TO TIME IT TAKES TO FILL
     GPIO.output(24, False)  # Turn fill pump off
+    time.sleep(1)
     # *************************************************
 
 
@@ -94,10 +99,11 @@ while True:  # Execution loop
     # ################ BUTTON COMMANDS ####################
     try:
         if GPIO.input(17) == GPIO.HIGH:  # Checks if button is pressed
+            print('Button Detected')
             run_sequence()
             time.sleep(2)
     except Exception as e:
         print(e)
         time.sleep(1)
 
-    time.sleep(2)
+    time.sleep(.5)
