@@ -39,7 +39,7 @@ def motor_forwards():
     init()
     GPIO.output(23, True)  # Turn motor on
     GPIO.output(27, True)  # ENA signal on
-    time.sleep(8)  # SET TO TIME IT TAKES TO GO DOWN
+    time.sleep(5)  # SET TO TIME IT TAKES TO GO DOWN
     GPIO.output(23, False)  # Turn motor off
     GPIO.output(27, False)  # ENA signal off
     time.sleep(1)
@@ -63,11 +63,11 @@ def pump_fill_flush():
     GPIO.cleanup()
     init()
     GPIO.output(24, True)
-    time.sleep(60)
+    time.sleep(25)
     GPIO.output(24, False)
     # Pump flush***************************************
     GPIO.output(25, True)
-    time.sleep(60)
+    time.sleep(25)
     GPIO.output(25, False)
     # *************************************************
 
@@ -77,9 +77,10 @@ def pump_fill():
     GPIO.cleanup()
     init()
     GPIO.output(24, True)
-    time.sleep(60)
+    time.sleep(25)
     GPIO.output(24, False)
     # *************************************************
+
 
 def run_sequence():
     motor_backwards()
