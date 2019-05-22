@@ -11,11 +11,11 @@ import RPi.GPIO as GPIO
 
 def init():
     GPIO.setmode(GPIO.BCM)
-    GPIO.setup(18, GPIO.OUT, initial=False)  # Pin for Motor backwards
-    GPIO.setup(23, GPIO.OUT, initial=False)  # Pin for Motor forwards
+    GPIO.setup(20, GPIO.OUT, initial=False)  # Pin for Motor backwards
+    GPIO.setup(21, GPIO.OUT, initial=False)  # Pin for Motor forwards
     GPIO.setup(24, GPIO.OUT, initial=False)  # Pin for Pump in
     GPIO.setup(25, GPIO.OUT, initial=False)  # Pin for Pump out
-    GPIO.setup(27, GPIO.OUT, initial=False)  # Pin for H-Bridge ENA Signal
+    GPIO.setup(16, GPIO.OUT, initial=False)  # Pin for H-Bridge ENA Signal
     GPIO.setup(17, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)  # Pin for sample button
 
 
@@ -23,12 +23,11 @@ def motor_backwards():
     # Motor to zero position***************************
     GPIO.cleanup()
     init()
-    GPIO.output(18, True)  # Turn motor on
-    GPIO.output(23, False)
-    GPIO.output(27, True)  # ENA signal on
+    GPIO.output(20, True)  # Turn motor on
+    GPIO.output(16, True)  # ENA signal on
     time.sleep(8)  # SET TO TIME IT TAKES TO RESET
-    GPIO.output(18, False)  # Turn motor off
-    GPIO.output(27, False)  # ENA signal off
+    GPIO.output(20, False)  # Turn motor off
+    GPIO.output(16, False)  # ENA signal off
     time.sleep(1)
     # *************************************************
 
@@ -37,11 +36,11 @@ def motor_forwards():
     # Motor to down position***************************
     GPIO.cleanup()
     init()
-    GPIO.output(23, True)  # Turn motor on
-    GPIO.output(27, True)  # ENA signal on
+    GPIO.output(21, True)  # Turn motor on
+    GPIO.output(16, True)  # ENA signal on
     time.sleep(5)  # SET TO TIME IT TAKES TO GO DOWN
-    GPIO.output(23, False)  # Turn motor off
-    GPIO.output(27, False)  # ENA signal off
+    GPIO.output(21, False)  # Turn motor off
+    GPIO.output(16, False)  # ENA signal off
     time.sleep(1)
     # *************************************************
 
