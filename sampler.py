@@ -67,7 +67,7 @@ def pump_fill_flush():
     GPIO.output(24, False)
     # Pump flush***************************************
     GPIO.output(25, True)
-    time.sleep(25)
+    time.sleep(20)
     GPIO.output(25, False)
     # *************************************************
 
